@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ditou1bcaoyjw"]
+
+[ext_resource type="Script" path="res://Code/gameBase/gameMaster.gd" id="1_d775o"]
+[ext_resource type="Environment" uid="uid://cfnmd41vmgyen" path="res://Scene/Enviroments/Fatelinds/FatelindsSky.tres" id="1_xvmfd"]
+[ext_resource type="PackedScene" uid="uid://ccflnlpkyh200" path="res://Scene/pop_up_sprite.tscn" id="2_7jc8g"]
+[ext_resource type="PackedScene" uid="uid://dewvx6q2w0wrf" path="res://Scene/Enviroments/Fatelinds/fatelinds_floor_block.tscn" id="3_xrb41"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3e55e"]
+viewport_path = NodePath("Sprite Viewport")
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_xvmfd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.707107, 0.612372, -0.353553, 0, 0.5, 0.866025, 0.707106, 0.612372, -0.353553, 0, 10, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 2, 4)
+
+[node name="Active" type="Node3D" parent="."]
+script = ExtResource("1_d775o")
+
+[node name="Fatelinds Floor Block" parent="." instance=ExtResource("3_xrb41")]
+
+[node name="Pop Up Sprite" parent="." instance=ExtResource("2_7jc8g")]
+texture = SubResource("ViewportTexture_3e55e")
+
+[editable path="Pop Up Sprite"]

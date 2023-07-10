@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="component" load_steps=2 format=3 uid="uid://djv0ssvfbqpyo"]
+
+[ext_resource type="Script" path="res://Code/gameBase/component.gd" id="1_mcoof"]
+
+[resource]
+script = ExtResource("1_mcoof")
+cost = 1
+type = 0
+properties = Array[String](["Reflective", "Hard", "Valuable", "Malleable", "Yellow"])
+itemName = "Kanlean Coin"
+weight = 0
