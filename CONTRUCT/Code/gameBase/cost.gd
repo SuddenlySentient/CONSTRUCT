@@ -17,6 +17,8 @@ Delay = 4
 ## The required component if this cost requires a component
 @export var requiredComponent : component
 
+var debugMode : bool = false
+
 ## Sets the type and amount of this cost.
 ## You can optionally set the component.
 ## returns itself
@@ -28,15 +30,40 @@ func setCost(setType : int, setAmount : float, setComponent : component = requir
 
 ## Tests to see if the being specified in the parameter can pay this cost.
 func testCost(costee : being):
-	
-	var costeeStats = costee.stats
-	match typeEnum :
-		typeEnum.HP : if costeeStats.HP >= requiredAmount : return true
-		typeEnum.STA : if costeeStats.STA >= requiredAmount : return true
-		typeEnum.Token : if costeeStats.token >= requiredAmount : return true
+	match costType :
+		typeEnum.HP : 
+			if costee.stats.HP >= requiredAmount : 
+				if (debugMode) : print(costee," : HP test passed!")
+				return true
+			else :
+				if (debugMode) : print(costee," : HP test failed!")
+		typeEnum.STA : 
+			if costee.stats.STA >= requiredAmount : 
+				if (debugMode) : print(costee," : STA test passed!")
+				return true
+			else :
+				if (debugMode) : print(costee," : HP test failed!")
+		typeEnum.Token : 
+			if costee.stats.token >= requiredAmount : 
+				if (debugMode) : print(costee," : Token test passed!")
+				return true
+			else :
+				if (debugMode) : print(costee," : HP test failed!")
 		typeEnum.Component :
 			var componentAmount = 0
-			for invetoryItem in costee.inventory : if invetoryItem == requiredComponent : componentAmount + 1
-			if componentAmount >= requiredAmount : return true
+			for invetoryItem in costee.inventory : if invetoryItem == requiredComponent : componentAmount += 1
+			if componentAmount >= requiredAmount : 
+				if (debugMode) : print(costee," : component test passed!")
+				return true
+			else :
+				if (debugMode) : print(costee," : HP test failed!")
 	
 	return false
+
+func takeCost(costee : being) :
+	match typeEnum :
+		typeEnum.HP : costee.stats.HP -= requiredAmount
+		typeEnum.STA : costee.stats.STA -= requiredAmount
+		typeEnum.Token : costee.stats.token -= requiredAmount
+		typeEnum.Component :
+			for x in requiredAmount : costee.heldInventory.itemList.erase(requiredComponent)

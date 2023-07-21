@@ -4,7 +4,7 @@
 [ext_resource type="Environment" uid="uid://cfnmd41vmgyen" path="res://Scene/Enviroments/Fatelinds/FatelindsSky.tres" id="1_xvmfd"]
 [ext_resource type="PackedScene" uid="uid://ccflnlpkyh200" path="res://Scene/pop_up_sprite.tscn" id="2_7jc8g"]
 [ext_resource type="Script" path="res://Code/gameBase/being.gd" id="3_o1mds"]
-[ext_resource type="MeshLibrary" uid="uid://c3m2cw36fa30h" path="res://Scene/Enviroments/Fatelinds/Fatelinds.meshlib" id="3_r7cb6"]
+[ext_resource type="MeshLibrary" uid="uid://5h22yl62b8o4" path="res://Scene/Enviroments/Fatelinds/Fatelinds.meshlib" id="3_r7cb6"]
 [ext_resource type="Script" path="res://Code/gameBase/controler.gd" id="4_ic3ym"]
 [ext_resource type="Script" path="res://Code/gameBase/statList.gd" id="4_xkcqx"]
 [ext_resource type="Script" path="res://Code/gameBase/spellBook.gd" id="5_njkcw"]

@@ -13,7 +13,6 @@ func instantiateStats() :
 	randi_range(6, 9),			#HP
 	randi_range(4, 7),			#STA
 	randi_range(2, 3),			#ARM
-	randf_range(0.75, 1.25)		#SPD
 	)
 	return newCguardStats
 
@@ -27,11 +26,12 @@ func instantiateInventory() :
 	var newCguardInventory : inventory = inventory.new()
 	
 	var KCoin = load("res://Items/Components/KCoin.tres")
-	var KCoinX8 = [KCoin,KCoin,KCoin,KCoin,KCoin,KCoin,KCoin,KCoin]
+	var KCoinX8 = []
+	KCoinX8.resize(8)
+	KCoinX8.fill(KCoin)
 	for x in randi_range(1, 4) : newCguardInventory.itemList.append_array(KCoinX8)
-	
 	var mainWeapon : weapon
-	if (randi_range(1, 2) == 2) : mainWeapon = load("res://Items/Weapons/longSword.tres")
+	if (randi_range(0, 1) == 1) : mainWeapon = load("res://Items/Weapons/longSword.tres")
 	else : mainWeapon = load("res://Items/Weapons/spear.tres")
 	newCguardInventory.itemList.append(mainWeapon)
 	

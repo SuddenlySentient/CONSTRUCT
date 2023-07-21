@@ -6,6 +6,8 @@ var turnCounter : int = -1
 ##
 var miniTurnCounter : int = -1
 
+
+
 func _ready():
 	newBattle()
 
@@ -17,13 +19,15 @@ func newBattle():
 	turnOrder.sort_custom(sort_by_authority)
 	turnCounter = 1
 	miniTurnCounter = 0
+	print("[TURN : ",turnCounter,"]")
+	await get_tree().create_timer(1).timeout
 	turnOrder.front().turn()
 
 # CHANGE THIS TO AUTHORITY ROLLS LATER!
 # MUST BE DETERMINISTIC! SO HAVE THE ROLLS BE DONE BEFORE YOU SORT
 ##
 func sort_by_authority(a, b):
-	if a[0].SPD < b[0].SPD:
+	if a[0].ARM < b[0].ARM:
 		return true
 	return false
 
@@ -32,10 +36,13 @@ func nextTurn():
 	var previousActive : being = turnOrder.front()
 	turnOrder.pop_front()
 	turnOrder.push_back(previousActive)
-	var nextActive : being = turnOrder.front()
+	miniTurnCounter += 1
 	if miniTurnCounter == turnOrder.size() :
-		turnCounter =+ 1
+		turnCounter = turnCounter + 1
 		miniTurnCounter = 0
+	print("[TURN : ",turnCounter,"]")
+	await get_tree().create_timer(1).timeout
+	turnOrder.front().turn()
 
 ## Call this to remove something from the turn order
 func removeFromTurnOrder(removeThis : being):

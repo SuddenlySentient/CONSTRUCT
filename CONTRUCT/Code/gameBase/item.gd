@@ -13,4 +13,4 @@ heavy = 3,
 veryHeavy = 4,
 }
 ##
-@export var weight : weightEnum = 2
+@export var weight : weightEnum = weightEnum.medium
