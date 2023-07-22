@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccflnlpkyh200"]
+
+[ext_resource type="Texture2D" uid="uid://dm0k0rus4aram" path="res://icon64.png" id="1_v5b7i"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dqgvi"]
+viewport_path = NodePath("Sprite Viewport")
+
+[node name="Pop Up Sprite" type="Sprite3D"]
+offset = Vector2(0, 32)
+pixel_size = 0.02
+billboard = 2
+double_sided = false
+alpha_cut = 2
+texture_filter = 0
+texture = SubResource("ViewportTexture_dqgvi")
+
+[node name="Sprite Viewport" type="SubViewport" parent="."]
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(64, 64)
+
+[node name="Sprite" type="Sprite2D" parent="Sprite Viewport"]
+texture = ExtResource("1_v5b7i")
+centered = false
