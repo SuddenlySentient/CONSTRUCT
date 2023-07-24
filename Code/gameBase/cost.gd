@@ -22,11 +22,11 @@ var debugMode : bool = false
 ## Sets the type and amount of this cost.
 ## You can optionally set the component.
 ## returns itself
-func setCost(setType : int, setAmount : float, setComponent : component = requiredComponent):
+func _init(setType : int, setAmount : float, setComponent : component = null):
+	@warning_ignore("int_as_enum_without_cast")
 	costType = setType
 	requiredAmount = setAmount
 	requiredComponent = setComponent
-	return self
 
 ## Tests to see if the being specified in the parameter can pay this cost.
 func testCost(costee : being):

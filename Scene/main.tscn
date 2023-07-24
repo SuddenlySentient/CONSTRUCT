@@ -28,7 +28,7 @@ itemList = Array[Resource("res://Code/gameBase/item.gd")]([])
 [sub_resource type="Resource" id="Resource_b3vue"]
 script = ExtResource("4_ic3ym")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_brqoq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rmvp3"]
 viewport_path = NodePath("Sprite Viewport")
 
 [node name="Main" type="Node3D"]
@@ -55,7 +55,7 @@ heldInventory = SubResource("Resource_y2bgy")
 brain = SubResource("Resource_b3vue")
 
 [node name="Pop Up Sprite" parent="Active/being" instance=ExtResource("2_7jc8g")]
-texture = SubResource("ViewportTexture_brqoq")
+texture = SubResource("ViewportTexture_rmvp3")
 
 [node name="Terrain" type="Node" parent="."]
 

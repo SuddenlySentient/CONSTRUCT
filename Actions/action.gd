@@ -27,8 +27,9 @@ func setAction(newName : String, newCosts : Array[cost], newPeriod : Array[activ
 	activePeriods = newPeriod
 
 ## Use this to do this action.
-func activate(newUser : being, actionInfo : Dictionary):
+func activate(newUser : being, newActionInfo : Dictionary):
 	user = newUser
+	actionInfo = newActionInfo
 	if (takeCosts()) :
 		if (await doAction()) : return true
 		else : return false
