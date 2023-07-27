@@ -3,7 +3,7 @@ a TTRPG
 
 Progress             :
 
-Base Engine          : [Complete] /*this is very good. It means I can work on the rest of the game now =).*/
+Base Engine          : [Complete] *this is very good. It means I can work on the rest of the game now =).*
 
 GUI + Controls       : [Not Started]
 
